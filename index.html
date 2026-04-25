@@ -6,15 +6,15 @@
   <title>الثبات — المنصة الإسلامية المتكاملة</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
-   :root {
-  --bg: #000000;        
-  --card-bg: #080808;    
-  --accent: #ffffff;
-  --primary: #c2ff05; 
-  --text-muted: #666666;
-  --border: #121212;
-  --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
+    :root {
+      --bg: #000000;        
+      --card-bg: #080808;    
+      --accent: #ffffff;
+      --primary: #c2ff05; 
+      --text-muted: #666666;
+      --border: #121212;
+      --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
 
     body {
       background-color: var(--bg);
@@ -26,26 +26,43 @@
 
     .container { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
 
-    /* Header Section */
-    header { margin-bottom: 120px; text-align: center; }
+    header { margin-bottom: 100px; text-align: center; }
     .brand-logo { font-family: 'Space Grotesk', sans-serif; font-size: 5rem; letter-spacing: -5px; margin: 0; }
     .hero-tag { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 20px auto; }
 
-    /* Mission Statement */
+    /* عناوين الأقسام الجديدة */
+    .section-title {
+      font-family: 'JetBrains Mono';
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin: 60px 0 30px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      display: inline-block;
+    }
+
     .mission-box {
       background: linear-gradient(to bottom, var(--card-bg), transparent);
       border: 1px solid var(--border);
       padding: 40px;
-      margin-bottom: 80px;
+      margin-bottom: 40px;
       border-radius: 4px;
     }
     .mission-box h3 { color: var(--primary); margin-top: 0; font-size: 0.9rem; font-family: 'JetBrains Mono'; text-transform: uppercase; }
     .mission-box p { font-size: 1.5rem; font-weight: 600; line-height: 1.4; margin: 0; }
 
-    /* Grid Layout */
     .apps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
     }
 
@@ -59,14 +76,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 320px;
+      min-height: 280px;
     }
 
     .app-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-    
     .app-card .status { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--primary); margin-bottom: 15px; display: block; }
     .app-card h2 { font-size: 2rem; margin: 0 0 10px 0; }
-    .app-card p { color: var(--text-muted); font-size: 0.95rem; flex-grow: 1; }
+    .app-card p { color: var(--text-muted); font-size: 0.95rem; flex-grow: 1; line-height: 1.6; }
     
     .app-btn {
       margin-top: 20px;
@@ -108,15 +124,16 @@
 
     <section class="mission-box">
       <h3>الرؤية — Vision</h3>
-      <p>مشروع "الثبات" هو حركة تقنية تهدف لتقديم البديل الإسلامي الأمثل؛ تطبيقات تجمع بين جودة التصميم العالمي والقيم الدينية الراسخة، بعيداً عن الفوضى والمحتوى المحرم.</p>
+      <p>مشروع "الثبات" هو حركة تقنية تهدف لتقديم البديل الإسلامي الأمثل؛ تطبيقات تجمع بين جودة التصميم العالمي والقيم الدينية الراسخة.</p>
     </section>
 
+    <div class="section-title">01 — تطبيقات الموبايل</div>
     <main class="apps-grid">
       <a href="https://github.com/x0r-1/athar_app" class="app-card">
         <div>
           <span class="status">// LIVE_PROD</span>
           <h2>أثر</h2>
-	<p>تجربة 'تيك توك' لكن بمحتوى نقي؛ فيديو قصير هادف بدون إعلانات أو محرمات.</p>
+          <p>تجربة 'فيديو قصير' هادف بدون إعلانات أو محتوى يخالف الفطرة.</p>
         </div>
         <div class="app-btn">مشاهدة المشروع <span>←</span></div>
       </a>
@@ -125,17 +142,16 @@
         <div>
           <span class="status">// LIVE_PROD</span>
           <h2>قراني</h2>
-	<p>بديل 'سبوتيفاي' الإسلامي؛ مكتبة صوتية متكاملة للقرآن والشعر بدون موسيقى.</p>
+          <p>مكتبة صوتية متكاملة للقرآن والشعر العربي الأصيل بدون موسيقى.</p>
         </div>
         <div class="app-btn">مشاهدة المشروع <span>←</span></div>
       </a>
 
-
       <a href="https://github.com/x0r-1/Al_Furqan_App" class="app-card">
         <div>
           <span class="status">// LIVE_PROD</span>
-          <h2>الفرقان</h2>
-          <p>مصحف رقمي متطور يركز على قدسية النص وسهولة الوصول والتدبر.</p>
+          <h2>رسالة</h2>
+          <p>مصحف رقمي متطور يركز على قدسية النص وتجربة المستخدم الفريدة.</p>
         </div>
         <div class="app-btn">مشاهدة المشروع <span>←</span></div>
       </a>
@@ -143,26 +159,50 @@
       <a href="https://github.com/x0r-1/AlZeker_App" class="app-card">
         <div>
           <span class="status">// LIVE_PROD</span>
-          <h2>الذكر</h2>
-          <p>رفيق المسلم اليومي في الأذكار والتسبيح بتصميم عصري وبسيط.</p>
+          <h2>كلمات</h2>
+          <p>رفيقك في الأذكار والتسبيح بتصميم عصري يراعي هدوء النفس.</p>
         </div>
         <div class="app-btn">مشاهدة المشروع <span>←</span></div>
       </a>
+    </main>
 
+    <div class="section-title">02 — بوتات التلجرام</div>
+    <div class="apps-grid">
       <a href="#" class="app-card">
         <div>
-          <span class="status">// IN_DEVELOPMENT</span>
-          <h2>المعرفة</h2>
-          <p>مكتبة فقهية وعلمية شاملة لتبسيط العلوم الشرعية لكل مسلم.</p>
+          <span class="status">// ACTIVE</span>
+          <h2>خادم</h2>
+          <p>بوت متكامل لتوفير المصادر الشرعية والكتب الصوتية بسرعة فائقة.</p>
         </div>
-        <div class="app-btn">قريباً <span>...</span></div>
+        <div class="app-btn">استخدام البوت <span>←</span></div>
       </a>
-    </main>
+      <a href="#" class="app-card">
+        <div>
+          <span class="status">// ACTIVE</span>
+          <h2>تنبيه</h2>
+          <p>يرسل لك مواقيت الصلاة وأذكار الصباح والمساء بانتظام.</p>
+        </div>
+        <div class="app-btn">استخدام البوت <span>←</span></div>
+      </a>
+    </div>
+
+    <div class="section-title">03 — المنصات الرقمية</div>
+    <div class="apps-grid">
+      <a href="#" class="app-card">
+        <div>
+          <span class="status">// LIVE</span>
+          <h2>منصة المعرفة</h2>
+          <p>موقع شامل لتبسيط العلوم الشرعية لكل مسلم في قالب تقني حديث.</p>
+        </div>
+        <div class="app-btn">زيارة الموقع <span>←</span></div>
+      </a>
+    </div>
 
     <footer>
       <div>© 2026 الثبات — Crafted for the Ummah</div>
       <div class="links">
-        <a href="">Facebook</a>
+        <a href="https://facebook.com/thabat">Facebook</a>
+        <a href="https://github.com/thabat-star">GitHub</a>
       </div>
     </footer>
   </div>
