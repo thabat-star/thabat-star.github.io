@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>الثبات — المنصة الإسلامية المتكاملة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+   :root {
+  --bg: #000000;        
+  --card-bg: #080808;    
+  --accent: #ffffff;
+  --primary: #c2ff05; 
+  --text-muted: #666666;
+  --border: #121212;
+  --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+    body {
+      background-color: var(--bg);
+      color: var(--accent);
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+
+    /* Header Section */
+    header { margin-bottom: 120px; text-align: center; }
+    .brand-logo { font-family: 'Space Grotesk', sans-serif; font-size: 5rem; letter-spacing: -5px; margin: 0; }
+    .hero-tag { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 20px auto; }
+
+    /* Mission Statement */
+    .mission-box {
+      background: linear-gradient(to bottom, var(--card-bg), transparent);
+      border: 1px solid var(--border);
+      padding: 40px;
+      margin-bottom: 80px;
+      border-radius: 4px;
+    }
+    .mission-box h3 { color: var(--primary); margin-top: 0; font-size: 0.9rem; font-family: 'JetBrains Mono'; text-transform: uppercase; }
+    .mission-box p { font-size: 1.5rem; font-weight: 600; line-height: 1.4; margin: 0; }
+
+    /* Grid Layout */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .app-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 30px;
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+    }
+
+    .app-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+    
+    .app-card .status { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--primary); margin-bottom: 15px; display: block; }
+    .app-card h2 { font-size: 2rem; margin: 0 0 10px 0; }
+    .app-card p { color: var(--text-muted); font-size: 0.95rem; flex-grow: 1; }
+    
+    .app-btn {
+      margin-top: 20px;
+      font-family: 'JetBrains Mono';
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      padding-top: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    footer {
+      margin-top: 150px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .links a { color: var(--text-muted); text-decoration: none; margin-right: 20px; transition: 0.3s; }
+    .links a:hover { color: var(--primary); }
+
+    @media (max-width: 768px) {
+      .brand-logo { font-size: 3.5rem; }
+      .mission-box p { font-size: 1.2rem; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1 class="brand-logo">الثبات</h1>
+      <p class="hero-tag">نحو بيئة رقمية إسلامية، نقية، ومتكاملة. نستبدل ما يضرك بما ينفعك.</p>
+    </header>
+
+    <section class="mission-box">
+      <h3>الرؤية — Vision</h3>
+      <p>مشروع "الثبات" هو حركة تقنية تهدف لتقديم البديل الإسلامي الأمثل؛ تطبيقات تجمع بين جودة التصميم العالمي والقيم الدينية الراسخة، بعيداً عن الفوضى والمحتوى المحرم.</p>
+    </section>
+
+    <main class="apps-grid">
+      <a href="https://github.com/x0r-1/athar_app" class="app-card">
+        <div>
+          <span class="status">// LIVE_PROD</span>
+          <h2>أثر</h2>
+	<p>تجربة 'تيك توك' لكن بمحتوى نقي؛ فيديو قصير هادف بدون إعلانات أو محرمات.</p>
+        </div>
+        <div class="app-btn">مشاهدة المشروع <span>←</span></div>
+      </a>
+
+      <a href="https://github.com/x0r-1/qurani_app" class="app-card">
+        <div>
+          <span class="status">// LIVE_PROD</span>
+          <h2>قراني</h2>
+	<p>بديل 'سبوتيفاي' الإسلامي؛ مكتبة صوتية متكاملة للقرآن والشعر بدون موسيقى.</p>
+        </div>
+        <div class="app-btn">مشاهدة المشروع <span>←</span></div>
+      </a>
+
+
+      <a href="https://github.com/x0r-1/Al_Furqan_App" class="app-card">
+        <div>
+          <span class="status">// LIVE_PROD</span>
+          <h2>الفرقان</h2>
+          <p>مصحف رقمي متطور يركز على قدسية النص وسهولة الوصول والتدبر.</p>
+        </div>
+        <div class="app-btn">مشاهدة المشروع <span>←</span></div>
+      </a>
+
+      <a href="https://github.com/x0r-1/AlZeker_App" class="app-card">
+        <div>
+          <span class="status">// LIVE_PROD</span>
+          <h2>الذكر</h2>
+          <p>رفيق المسلم اليومي في الأذكار والتسبيح بتصميم عصري وبسيط.</p>
+        </div>
+        <div class="app-btn">مشاهدة المشروع <span>←</span></div>
+      </a>
+
+      <a href="#" class="app-card">
+        <div>
+          <span class="status">// IN_DEVELOPMENT</span>
+          <h2>المعرفة</h2>
+          <p>مكتبة فقهية وعلمية شاملة لتبسيط العلوم الشرعية لكل مسلم.</p>
+        </div>
+        <div class="app-btn">قريباً <span>...</span></div>
+      </a>
+    </main>
+
+    <footer>
+      <div>© 2026 الثبات — Crafted for the Ummah</div>
+      <div class="links">
+        <a href="">Facebook</a>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
