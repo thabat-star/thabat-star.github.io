@@ -1,203 +1,610 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>الثبات — المنصة الإسلامية المتكاملة</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>الثبات — أثر</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #000000;        
-      --card-bg: #080808;    
-      --accent: #ffffff;
-      --primary: #c2ff05; 
-      --text-muted: #666666;
-      --border: #121212;
-      --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      --bg: #000;
+      --card: #050505;
+      --border: #111;
+      --primary: #c2ff05;
+      --text: #fff;
+      --muted: #666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background-color: var(--bg);
-      color: var(--accent);
+      background: var(--bg);
+      color: var(--text);
       font-family: 'IBM Plex Sans Arabic', sans-serif;
-      margin: 0;
       overflow-x: hidden;
+      position: relative;
     }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    /* خلفية ناعمة */
 
-    header { margin-bottom: 100px; text-align: center; }
-    .brand-logo { font-family: 'Space Grotesk', sans-serif; font-size: 5rem; letter-spacing: -5px; margin: 0; }
-    .hero-tag { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 20px auto; }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
 
-    /* عناوين الأقسام الجديدة */
-    .section-title {
+      background:
+        radial-gradient(circle at top left,
+          rgba(194, 255, 5, 0.03),
+          transparent 30%),
+
+        radial-gradient(circle at bottom right,
+          rgba(255, 255, 255, 0.02),
+          transparent 30%);
+
+      z-index: -2;
+    }
+
+    /* intro */
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 9999;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      animation: fadeOut 1s ease forwards;
+      animation-delay: 2s;
+    }
+
+    .athar-wrap {
+      position: relative;
+    }
+
+    .athar-logo {
+
+      font-family: 'Aref Ruqaa', serif;
+      font-size: 9rem;
+      font-weight: 700;
+
+      color: rgba(255, 255, 255, 0.95);
+
+      position: relative;
+
+      letter-spacing: 2px;
+
+      animation: floaty 4s ease-in-out infinite;
+
+      text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.05);
+
+    }
+
+    /* تم حذف الخط اللامع */
+
+    .intro-sub {
+
+      margin-top: 20px;
+
+      color: #555;
+
+      font-size: .75rem;
+
+      letter-spacing: 4px;
+
       font-family: 'JetBrains Mono';
-      font-size: 0.8rem;
-      color: var(--text-muted);
+
+      opacity: .6;
+
+    }
+
+    /* الموقع */
+
+    .container {
+      width: min(1200px, 90%);
+      margin: auto;
+      padding: 60px 0;
+    }
+
+    header {
+
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      text-align: center;
+
+    }
+
+    .brand-logo {
+
+      font-size: 6rem;
+      font-family: 'Aref Ruqaa', serif;
+
+      margin-bottom: 20px;
+
+      color: #fff;
+
+    }
+
+    .hero-tag {
+
+      max-width: 700px;
+
+      color: var(--muted);
+
+      line-height: 1.9;
+
+      font-size: 1.1rem;
+
+    }
+
+    .section-title {
+
+      margin: 100px 0 30px;
+
+      padding-bottom: 15px;
+
       border-bottom: 1px solid var(--border);
-      padding-bottom: 10px;
-      margin: 60px 0 30px 0;
+
+      font-size: .8rem;
+
+      color: #666;
+
+      font-family: 'JetBrains Mono';
+
       display: flex;
       align-items: center;
       gap: 10px;
+
     }
+
     .section-title::before {
+
       content: "";
-      width: 8px;
-      height: 8px;
+
+      width: 7px;
+      height: 7px;
+
       background: var(--primary);
-      display: inline-block;
+
+      border-radius: 50%;
+
     }
+
+    /* vision */
 
     .mission-box {
-      background: linear-gradient(to bottom, var(--card-bg), transparent);
+
+      background: linear-gradient(to bottom,
+          rgba(255,255,255,0.02),
+          transparent);
+
       border: 1px solid var(--border);
+
       padding: 40px;
-      margin-bottom: 40px;
-      border-radius: 4px;
+
+      border-radius: 10px;
+
     }
-    .mission-box h3 { color: var(--primary); margin-top: 0; font-size: 0.9rem; font-family: 'JetBrains Mono'; text-transform: uppercase; }
-    .mission-box p { font-size: 1.5rem; font-weight: 600; line-height: 1.4; margin: 0; }
+
+    .mission-box h3 {
+
+      color: var(--primary);
+
+      font-size: .8rem;
+
+      margin-bottom: 20px;
+
+      font-family: 'JetBrains Mono';
+
+    }
+
+    .mission-box p {
+
+      font-size: 1.5rem;
+
+      line-height: 1.8;
+
+      font-weight: 600;
+
+    }
+
+    /* cards */
 
     .apps-grid {
+
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
       gap: 20px;
+
     }
 
     .app-card {
-      background: var(--card-bg);
+
+      background: rgba(255,255,255,0.02);
+
       border: 1px solid var(--border);
+
+      border-radius: 14px;
+
       padding: 30px;
+
       text-decoration: none;
+
       color: inherit;
-      transition: var(--transition);
+
+      min-height: 300px;
+
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 280px;
+
+      transition: .4s ease;
+
+      backdrop-filter: blur(10px);
+
+      position: relative;
+
+      overflow: hidden;
+
     }
 
-    .app-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-    .app-card .status { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--primary); margin-bottom: 15px; display: block; }
-    .app-card h2 { font-size: 2rem; margin: 0 0 10px 0; }
-    .app-card p { color: var(--text-muted); font-size: 0.95rem; flex-grow: 1; line-height: 1.6; }
-    
-    .app-btn {
-      margin-top: 20px;
+    .app-card::before {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          120deg,
+          transparent,
+          rgba(194,255,5,0.03),
+          transparent
+        );
+
+      transform: translateX(-100%);
+
+      transition: 1s;
+
+    }
+
+    .app-card:hover::before {
+      transform: translateX(100%);
+    }
+
+    .app-card:hover {
+
+      transform: translateY(-6px);
+
+      border-color: rgba(194,255,5,0.3);
+
+      box-shadow:
+        0 0 40px rgba(194,255,5,0.05);
+
+    }
+
+    .status {
+
+      color: var(--primary);
+
+      font-size: .7rem;
+
+      margin-bottom: 15px;
+
       font-family: 'JetBrains Mono';
-      font-size: 0.8rem;
+
+    }
+
+    .app-card h2 {
+
+      font-size: 2.3rem;
+
+      margin-bottom: 15px;
+
+      font-family: 'Aref Ruqaa', serif;
+
+    }
+
+    .app-card p {
+
+      color: #777;
+
+      line-height: 1.8;
+
+    }
+
+    .app-btn {
+
+      margin-top: 25px;
+
+      padding-top: 20px;
+
       border-top: 1px solid var(--border);
-      padding-top: 15px;
+
       display: flex;
       justify-content: space-between;
+
+      font-size: .8rem;
+
+      font-family: 'JetBrains Mono';
+
     }
 
     footer {
-      margin-top: 150px;
-      padding: 40px 0;
+
+      margin-top: 120px;
+
+      padding-top: 40px;
+
       border-top: 1px solid var(--border);
+
       display: flex;
       justify-content: space-between;
-      color: var(--text-muted);
-      font-size: 0.85rem;
+
+      flex-wrap: wrap;
+
+      gap: 20px;
+
+      color: #666;
+
+      font-size: .9rem;
+
     }
 
-    .links a { color: var(--text-muted); text-decoration: none; margin-right: 20px; transition: 0.3s; }
-    .links a:hover { color: var(--primary); }
+    .links {
+      display: flex;
+      gap: 20px;
+    }
 
-    @media (max-width: 768px) {
-      .brand-logo { font-size: 3.5rem; }
-      .mission-box p { font-size: 1.2rem; }
-      footer { flex-direction: column; gap: 20px; text-align: center; }
+    .links a {
+
+      color: #666;
+
+      text-decoration: none;
+
+      transition: .3s;
+
+    }
+
+    .links a:hover {
+      color: var(--primary);
+    }
+
+    /* animations */
+
+    @keyframes floaty {
+
+      0%,100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+
+    }
+
+    @keyframes fadeOut {
+
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+    }
+
+    /* responsive */
+
+    @media(max-width:768px) {
+
+      .athar-logo {
+        font-size: 5rem;
+      }
+
+      .brand-logo {
+        font-size: 4rem;
+      }
+
+      .mission-box p {
+        font-size: 1.1rem;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
     }
   </style>
 </head>
+
 <body>
 
+  <!-- INTRO -->
+
+  <div id="intro">
+
+    <div class="athar-wrap">
+
+      <h1 class="athar-logo">
+        أثر
+      </h1>
+
+    </div>
+
+    <div class="intro-sub">
+     نقي • هادئ • ذو معنى
+    </div>
+
+  </div>
+
+  <!-- SITE -->
+
   <div class="container">
+
     <header>
-      <h1 class="brand-logo">الثبات</h1>
-      <p class="hero-tag">نحو بيئة رقمية إسلامية، نقية، ومتكاملة. نستبدل ما يضرك بما ينفعك.</p>
+
+      <h1 class="brand-logo">
+        الثبات
+      </h1>
+
+      <p class="hero-tag">
+        نحو بيئة رقمية إسلامية، نقية، ومتكاملة.
+        نستبدل ما يضرك بما ينفعك.
+      </p>
+
     </header>
 
+    <!-- vision -->
+
     <section class="mission-box">
-      <h3>الرؤية — Vision</h3>
-      <p>مشروع "الثبات" هو حركة تقنية تهدف لتقديم البديل الإسلامي الأمثل؛ تطبيقات تجمع بين جودة التصميم العالمي والقيم الدينية الراسخة.</p>
+
+      <h3>
+        VISION — الرؤية
+      </h3>
+
+      <p>
+        مشروع "الثبات" هو حركة تقنية تهدف لتقديم البديل الإسلامي الأمثل؛
+        تطبيقات تجمع بين جودة التصميم العالمي والقيم الدينية الراسخة.
+      </p>
+
     </section>
 
-    <div class="section-title">01 — تطبيقات الموبايل</div>
+    <!-- apps -->
+
+    <div class="section-title">
+      01 — تطبيقات الموبايل
+    </div>
+
     <main class="apps-grid">
-      <a href="https://github.com/thabat-star/Athar" class="app-card">
+
+      <a href="#" class="app-card">
+
         <div>
-          <span class="status">// LIVE_PROD</span>
-          <h2>أثر</h2>
-          <p>تجربة 'فيديو قصير' هادف بدون إعلانات أو محتوى يخالف الفطرة.</p>
+
+          <span class="status">
+            // LIVE_PROD
+          </span>
+
+          <h2>
+            أثر
+          </h2>
+
+          <p>
+            تجربة فيديو قصير هادف بدون إعلانات أو محتوى يخالف الفطرة.
+          </p>
+
         </div>
-        <div class="app-btn">مشاهدة المشروع <span>←</span></div>
+
+        <div class="app-btn">
+          مشاهدة المشروع
+          <span>←</span>
+        </div>
+
       </a>
 
-      <a href="https://github.com/thabat-star/Qurani" class="app-card">
+      <a href="#" class="app-card">
+
         <div>
-          <span class="status">// LIVE_PROD</span>
-          <h2>قراني</h2>
-          <p>مكتبة صوتية متكاملة للقرآن والشعر العربي الأصيل بدون موسيقى.</p>
+
+          <span class="status">
+            // LIVE_PROD
+          </span>
+
+          <h2>
+            قراني
+          </h2>
+
+          <p>
+            مكتبة صوتية متكاملة للقرآن والشعر العربي الأصيل بدون موسيقى.
+          </p>
+
         </div>
-        <div class="app-btn">مشاهدة المشروع <span>←</span></div>
+
+        <div class="app-btn">
+          مشاهدة المشروع
+          <span>←</span>
+        </div>
+
       </a>
 
-      <a href="https://github.com/thabat-star/Resala" class="app-card">
+      <a href="#" class="app-card">
+
         <div>
-          <span class="status">// LIVE_PROD</span>
-          <h2>رسالة</h2>
-          <p>مصحف رقمي متطور يركز على قدسية النص وتجربة المستخدم الفريدة.</p>
+
+          <span class="status">
+            // LIVE_PROD
+          </span>
+
+          <h2>
+            رسالة
+          </h2>
+
+          <p>
+            مصحف رقمي متطور يركز على قدسية النص وتجربة المستخدم الفريدة.
+          </p>
+
         </div>
-        <div class="app-btn">مشاهدة المشروع <span>←</span></div>
+
+        <div class="app-btn">
+          مشاهدة المشروع
+          <span>←</span>
+        </div>
+
       </a>
 
     </main>
 
-    <div class="section-title">02 — بوتات التلجرام</div>
-    <div class="apps-grid">
-      <a href="#" class="app-card">
-        <div>
-          <span class="status">// ACTIVE</span>
-          <h2>خادم</h2>
-          <p>بوت متكامل لتوفير المصادر الشرعية والكتب الصوتية بسرعة فائقة.</p>
-        </div>
-        <div class="app-btn">استخدام البوت <span>←</span></div>
-      </a>
-      <a href="#" class="app-card">
-        <div>
-          <span class="status">// ACTIVE</span>
-          <h2>تنبيه</h2>
-          <p>يرسل لك مواقيت الصلاة وأذكار الصباح والمساء بانتظام.</p>
-        </div>
-        <div class="app-btn">استخدام البوت <span>←</span></div>
-      </a>
-    </div>
-
-    <div class="section-title">03 — المنصات الرقمية</div>
-    <div class="apps-grid">
-      <a href="#" class="app-card">
-        <div>
-          <span class="status">// LIVE</span>
-          <h2>منصة المعرفة</h2>
-          <p>موقع شامل لتبسيط العلوم الشرعية لكل مسلم في قالب تقني حديث.</p>
-        </div>
-        <div class="app-btn">زيارة الموقع <span>←</span></div>
-      </a>
-    </div>
+    <!-- footer -->
 
     <footer>
-      <div>© 2026 الثبات — Crafted for the Ummah</div>
-      <div class="links">
-        <a href="https://facebook.com/thabat">Facebook</a>
-        <a href="https://github.com/thabat-star">GitHub</a>
+
+      <div>
+        © 2026 الثبات — Crafted for the Ummah
       </div>
+
+      <div class="links">
+
+        <a href="#">
+          فيسبوك
+        </a>
+
+        <a href="#">
+          جيتهب
+        </a>
+
+      </div>
+
     </footer>
+
   </div>
 
 </body>
+
 </html>
